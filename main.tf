@@ -3,6 +3,8 @@
 
 provider "aws" {
   region = var.region
+  access_key = "AKIAQBLOLMYAWWKTR7IT"
+  secret_key = "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"
 }
 
 # Filter out local zones, which are not currently supported 
@@ -70,9 +72,9 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.xlarge"]
 
-      min_size     = 1
+      min_size     = 2
       max_size     = 3
       desired_size = 2
     }
@@ -80,11 +82,11 @@ module "eks" {
     two = {
       name = "node-group-2"
 
-      instance_types = ["t3.small"]
+      instance_types = ["t3.xlarge"]
 
-      min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      min_size     = 2
+      max_size     = 3
+      desired_size = 2
     }
   }
 }
